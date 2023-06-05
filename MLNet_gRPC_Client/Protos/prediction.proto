@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "MLNetService";
+
+package prediction;
+
+service Prediction {
+	rpc Predict (HousingRequest) returns (HousingReply);
+}
+
+message HousingRequest {
+	float longitude = 1;
+	float latitude = 2;
+	float housing_median_age = 3;
+	float total_rooms = 4;
+	float total_bedrooms = 5;
+	float population = 6;
+	float households = 7;
+	float median_income = 8;
+	string ocean_proximity = 9;
+	float label = 10;
+}
+
+message HousingReply {
+	float score = 1;
+}
